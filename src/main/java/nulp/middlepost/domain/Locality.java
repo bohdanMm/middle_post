@@ -17,6 +17,6 @@ public class Locality {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "district_id", insertable = false, updatable = false)
+    @JoinColumn(name = "district_id")
     private District district;
 }
