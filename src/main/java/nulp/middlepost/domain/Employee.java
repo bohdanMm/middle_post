@@ -5,17 +5,20 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity(name = "locality")
+@Entity
 @Getter
 @Setter
-public class Locality {
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String fullName;
 
     @ManyToOne
-    private District district;
+    private PostOffice postOffice;
+
+    @ManyToOne
+    private Position position;
 }
