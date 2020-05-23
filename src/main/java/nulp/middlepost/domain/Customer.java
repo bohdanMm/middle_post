@@ -3,25 +3,23 @@ package nulp.middlepost.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
-public class Customer {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String fullName;
+@PrimaryKeyJoinColumn(name = "user_id")
+public class Customer extends User {
 
     private String passportData;
 
     @OneToMany(mappedBy = "sender")
-    private List<PackageReceiving> sandedPackages;
+    private List<PackageReceiving> sandedPackages = new ArrayList<>();
 
     @OneToMany(mappedBy = "receiver")
-    private List<PackageReceiving> receivedPackages;
+    private List<PackageReceiving> receivedPackages = new ArrayList<>();
 }
