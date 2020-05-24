@@ -1,4 +1,4 @@
-package nulp.middlepost.service.authorization.dto.request;
+package nulp.middlepost.service.authorization.dto;
 
 import lombok.Getter;
 import lombok.Setter;

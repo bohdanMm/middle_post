@@ -1,4 +1,4 @@
-package nulp.middlepost.service.role;
+package nulp.middlepost.service.dictionaties;
 
 import lombok.RequiredArgsConstructor;
 import nulp.middlepost.domain.UserRole;
@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class UserRoleService {
+public class DictionariesService {
 
     private final UserRoleRepository userRoleRepository;
 
-    public UserRole findByName(String roleName) {
+    public UserRole findRoleByName(String roleName) {
         return userRoleRepository.findByName(roleName)
                 .orElseThrow(() -> new EntityNotFoundException("User role with name: " + roleName + " not found"));
     }

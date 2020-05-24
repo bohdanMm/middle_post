@@ -10,13 +10,13 @@ import nulp.middlepost.repository.CustomerRepository;
 import nulp.middlepost.repository.EmployeeRepository;
 import nulp.middlepost.repository.UserRepository;
 import nulp.middlepost.service.authorization.dto.UserDto;
-import nulp.middlepost.service.authorization.dto.request.CustomerRequest;
-import nulp.middlepost.service.authorization.dto.request.EmployeeRequest;
-import nulp.middlepost.service.authorization.dto.request.LoginRequest;
+import nulp.middlepost.service.authorization.dto.CustomerRequest;
+import nulp.middlepost.service.authorization.dto.EmployeeRequest;
+import nulp.middlepost.service.authorization.dto.LoginRequest;
 import nulp.middlepost.service.authorization.mapper.CustomerMapper;
 import nulp.middlepost.service.authorization.mapper.EmployeeMapper;
 import nulp.middlepost.service.authorization.mapper.UserMapper;
-import nulp.middlepost.service.role.UserRoleService;
+import nulp.middlepost.service.dictionaties.DictionariesService;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -30,7 +30,7 @@ public class AuthorizationService {
     private final UserMapper userMapper;
     private final EmployeeMapper employeeMapper;
     private final CustomerMapper customerMapper;
-    private final UserRoleService userRoleService;
+    private final DictionariesService userRoleService;
 
     public UserDto login(LoginRequest loginRequest) {
         log.debug("Log in user with email: {}", loginRequest.getEmail());
@@ -46,7 +46,7 @@ public class AuthorizationService {
         log.debug("Request to create employee");
 
         Employee employee = employeeMapper.toEntity(employeeRequest);
-        employee.getUserRoles().add(userRoleService.findByName("employee"));
+        employee.getUserRoles().add(userRoleService.findRoleByName("employee"));
 
         return employeeMapper.toUserDto(employeeRepository.save(employee));
     }
@@ -55,7 +55,7 @@ public class AuthorizationService {
         log.debug("Request to create customer");
 
         Customer customer = customerMapper.toEntity(customerRequest);
-        customer.getUserRoles().add(userRoleService.findByName("customer"));
+        customer.getUserRoles().add(userRoleService.findRoleByName("customer"));
 
         return customerMapper.toUserDto(customerRepository.save(customer));
     }
