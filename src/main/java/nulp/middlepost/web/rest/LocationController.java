@@ -19,17 +19,17 @@ public class LocationController {
     private final LocationService locationService;
 
     @PostMapping("/region/create")
-    public ResponseEntity<String> createRegion(@RequestBody RegionRequest regionRequest){
+    public ResponseEntity<String> createRegion(@RequestBody RegionRequest regionRequest) {
         return ResponseEntity.ok().body(locationService.createRegion(regionRequest));
     }
 
     @PostMapping("/district/create")
-    public ResponseEntity<String> createDistrict (@RequestBody DistrictRequest districtRequest){
+    public ResponseEntity<String> createDistrict(@RequestBody DistrictRequest districtRequest) {
         return ResponseEntity.ok().body(locationService.createDistrict(districtRequest));
     }
 
     @PostMapping("/locality/create")
-    public ResponseEntity<String> createLocality(@RequestBody LocalityRequest localityRequest){
+    public ResponseEntity<String> createLocality(@RequestBody LocalityRequest localityRequest) {
         return ResponseEntity.ok().body(locationService.createLocality(localityRequest));
     }
 }

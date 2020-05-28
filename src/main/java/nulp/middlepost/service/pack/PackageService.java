@@ -6,7 +6,7 @@ import nulp.middlepost.domain.Package;
 import nulp.middlepost.repository.PackageRepository;
 import nulp.middlepost.service.pack.dto.PackageDto;
 import nulp.middlepost.service.pack.dto.PackageRequest;
-import nulp.middlepost.service.pack.mapper.PackMapper;
+import nulp.middlepost.service.pack.mapper.PackageMapper;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -15,9 +15,9 @@ import org.springframework.stereotype.Service;
 public class PackageService {
 
     private final PackageRepository packageRepository;
-    private final PackMapper packageMapper;
+    private final PackageMapper packageMapper;
 
-    public PackageDto create(PackageRequest packageRequest){
+    public PackageDto create(PackageRequest packageRequest) {
         log.debug("Create new package");
 
         Package pack = packageMapper.toEntity(packageRequest);

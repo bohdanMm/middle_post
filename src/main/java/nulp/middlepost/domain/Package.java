@@ -28,6 +28,6 @@ public class Package {
     @ManyToOne
     private PackageType packageType;
 
-    @OneToOne(mappedBy = "aPackage")
+    @OneToOne(mappedBy = "pack")
     private PackageReceiving packageReceiving;
 }

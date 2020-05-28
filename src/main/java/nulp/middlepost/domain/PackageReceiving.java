@@ -1,12 +1,10 @@
 package nulp.middlepost.domain;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.Instant;
-import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -42,5 +40,5 @@ public class PackageReceiving {
     private Packaging packaging;
 
     @OneToOne
-    private Package aPackage;
+    private Package pack;
 }

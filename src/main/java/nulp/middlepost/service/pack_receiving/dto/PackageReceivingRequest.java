@@ -2,25 +2,23 @@ package nulp.middlepost.service.pack_receiving.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import nulp.middlepost.service.authorization.dto.UserDto;
-import nulp.middlepost.service.pack.dto.PackageDto;
 import nulp.middlepost.service.post_office.dto.PostOfficeDto;
 
 import java.time.Instant;
 
 @Getter
 @Setter
-public class PackageReceivingDto {
+public class PackageReceivingRequest {
 
     private Long id;
 
-    private UserDto sender;
+    private Long sender;
 
-    private UserDto receiver;
+    private Long receiver;
 
-    private Instant receivingDate;
+    private Instant receivingDate = Instant.now();
 
-    private UserDto employee;
+    private Long employee;
 
     private PostOfficeDto postOfficeFrom;
 
@@ -30,7 +28,7 @@ public class PackageReceivingDto {
 
     private Double deliveryPrice;
 
-    private String packaging;
+    private Long packaging;
 
-    private PackageDto packageDto;
+    private Long pack;
 }

@@ -3,9 +3,11 @@ package nulp.middlepost.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.time.Instant;
-import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -17,10 +19,7 @@ public class History {
     private Long id;
 
     @ManyToOne
-    private PostOffice postOfficeFrom;
-
-    @ManyToOne
-    private PostOffice postOfficeTo;
+    private PostOffice postOffice;
 
     @ManyToOne
     private Employee employee;
