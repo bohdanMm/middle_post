@@ -26,7 +26,8 @@ public class History {
 
     private Instant receivingDate;
 
-    private Instant sendingDate;
-
     private Boolean isEndOffice;
+
+    @ManyToOne
+    private Package pac;
 }

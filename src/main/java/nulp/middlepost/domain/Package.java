@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -30,4 +31,7 @@ public class Package {
 
     @OneToOne(mappedBy = "pack")
     private PackageReceiving packageReceiving;
+
+    @OneToMany(mappedBy = "pac")
+    private List<History> history;
 }

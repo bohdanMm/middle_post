@@ -9,19 +9,34 @@ function showUserInHeader() {
     if (localStorage.length == 0) {
         document.getElementById("references").innerHTML = '<a href="pages/signIn.html" class="refs">Sign in</a> <a href="pages/signUp.html" class="refs">Sign up</a>';
     } else {
+        var re = new RegExp("/*index.html/*");
+        var prefix = "";
+        if (re.test(window.location.href)) {
+            prefix = "pages/";
+        }
+
+        var refrences = document.getElementById('references');
         var pageHref = document.createElement("a");
         var href;
         if (JSON.parse(localStorage.getItem('currentUser')).userRole == "admin") {
-            href = "pages/adminPage.html";
+            href = prefix + "adminPage.html";
+            pageHref.innerHTML = JSON.parse(localStorage.getItem('currentUser')).fullName;
         } else if (JSON.parse(localStorage.getItem('currentUser')).userRole == "employee") {
-            href = "pages/workerPage.html";
+            href = prefix + "receivePackage.html";
+            pageHref.innerHTML = "Receive package";
+            var historyHref = document.createElement("a");
+            historyHref.innerHTML = "History";
+            historyHref.href = prefix + "historyRecord.html";
+            historyHref.className = "refs";
+            refrences.appendChild(historyHref);
+            console.log(historyHref)
+            console.log(refrences)
         } else {
-            href = "pages/personalCabinet.html";
+            href = prefix + "personalCabinet.html";
+            pageHref.innerHTML = JSON.parse(localStorage.getItem('currentUser')).fullName;
         }
         pageHref.href = href;
         pageHref.className = "refs";
-        pageHref.innerHTML = JSON.parse(localStorage.getItem('currentUser')).fullName;
-        var refrences = document.getElementById('references');
         refrences.appendChild(pageHref);
         var exit = document.createElement("a");
         exit.className = "refs";

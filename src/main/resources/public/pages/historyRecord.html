@@ -19,51 +19,19 @@
 </div>
 <div id="historyRecord">
     <form id="historyRecordForm">
-        <div id="announcedPrice" class="align">
-            <label for="anPrice">Announced price:</label>
-            <input type="text" name="announcedPrice" id="anPrice" required="required">
+        <div id="postOffice" class="align">
+            <label for="postOff">Post office to:</label>
+            <input type="number" name="postOffice" id="postOff">
         </div>
-        <div id="weight" class="align">
-            <label for="pacWeight">Weight:</label>
-            <input type="text" name="weight" id="pacWeight" required="required">
+        <div id="package" class="align">
+            <label for="pac">Package number:</label>
+            <input type="number" name="package" id="pac">
         </div>
-        <div id="size" class="align">
-            <label for="pacSize">Size:</label>
-            <input type="text" name="size" id="pacSize" required="required">
+        <div id="isEndOffice" class="align">
+            <label for="isEndOff">End office:</label>
+            <input type="checkbox" name="isEndOffice" id="isEndOff" value="endOffice">
         </div>
-        <div id="customerFrom" class="align">
-            <label for="cusFrom">Customer from:</label>
-            <input type="number" name="customerFrom" id="cusFrom" required="required">
-        </div>
-        <div id="customerTo" class="align">
-            <label for="cusTo">Customer to:</label>
-            <input type="number" name="customerTo" id="cusTo" required="required">
-        </div>
-        <div id="description" class="align">
-            <label for="desc">Description:</label>
-            <input type="text" name="pass" id="desc" required="required">
-        </div>
-        <div id="packageType" class="align">
-            <label for="packType">Package type:</label>
-            <select id="packType"></select>
-        </div>
-        <div id="postOfficeTo" class="align">
-            <label for="officeTo">Office to:</label>
-            <input type="number" name="officeTo" id="officeTo" required="required">
-        </div>
-        <div id="payReceiver" class="align">
-            <label for="payRec">Pay receiver:</label>
-            <input type="checkbox" name="payRec" id="payRec" value="payReceiver">
-        </div>
-        <div id="deliveryPrice" class="align">
-            <label for="delivPrice">Delivery price:</label>
-            <input type="number" name="deliveryPrice" id="delivPrice" value="payReceiver">
-        </div>
-        <div id="packaging" class="align">
-            <label for="packagingId">Packaging:</label>
-            <select id="packagingId"></select>
-        </div>
-        <button onclick="return receivePackage();">Send</button>
+        <button onclick="return makeHistoryRecord();">Send</button>
     </form>
 </div>
 

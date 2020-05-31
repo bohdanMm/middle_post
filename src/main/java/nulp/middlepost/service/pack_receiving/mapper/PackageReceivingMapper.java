@@ -4,7 +4,7 @@ import nulp.middlepost.domain.PackageReceiving;
 import nulp.middlepost.service.authorization.mapper.CustomerMapper;
 import nulp.middlepost.service.authorization.mapper.EmployeeMapper;
 import nulp.middlepost.service.dictionaries.mapper.PackagingMapper;
-import nulp.middlepost.service.pack.mapper.PackageMapper;
+import nulp.middlepost.service.pack.mapper.PacMapper;
 import nulp.middlepost.service.pack_receiving.dto.PackageReceivingDto;
 import nulp.middlepost.service.pack_receiving.dto.PackageReceivingRequest;
 import nulp.middlepost.service.post_office.mapper.PostOfficeMapper;
@@ -24,7 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public abstract class PackageReceivingMapper {
 
     @Autowired
-    private PackageMapper packageMapper;
+    private PacMapper packageMapper;
 
     @Mapping(target = "packaging", source = "packaging.name")
     public abstract PackageReceivingDto toDto(PackageReceiving packageReceiving);

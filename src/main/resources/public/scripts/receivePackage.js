@@ -17,8 +17,7 @@ function getPackageTypes() {
             for (var i = 0; i < response.length; i++) {
                 var opt = document.createElement('option');
                 opt.appendChild(document.createTextNode(response[i].name));
-                opt.value = 'response.name';
-                opt.id = response[i].id;
+                opt.value = response[i].id;
                 select.appendChild(opt);
             }
         })
@@ -37,8 +36,7 @@ function getPackagingTypes() {
             for (var i = 0; i < response.length; i++) {
                 var opt = document.createElement('option');
                 opt.appendChild(document.createTextNode(response[i].name));
-                opt.value = 'response.name';
-                opt.id = response[i].id;
+                opt.value = response[i].id;
                 select.appendChild(opt);
             }
         })
@@ -54,7 +52,7 @@ function receivePackage() {
         price: $('#anPrice').val(),
         weight: $('#pacWeight').val(),
         description: $('#desc').val(),
-        packageType: $('#packType').find('option:selected').attr('id'),
+        packageType: $('#packType').val(),
         employee: JSON.parse(localStorage.getItem('currentUser')).id,
         postOfficeTo: $('#officeTo').val(),
         size: $('#pacSize').val(),
@@ -64,7 +62,7 @@ function receivePackage() {
         receiver: $('#cusTo').val(),
         sender: $('#cusFrom').val(),
         deliveryPrice: $('#delivPrice').val(),
-        packaging: $('#packagingId').find('option:selected').attr('id'),
+        packaging: $('#packagingId').val(),
     };
 
     console.log(packageReceiving);

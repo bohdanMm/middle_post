@@ -2,34 +2,26 @@ var basicURL = "http://localhost:8080";
 
 document.addEventListener('DOMContentLoaded', showUserInHeader);
 
-function receivePackage() {
+function makeHistoryRecord() {
     event.preventDefault();
 
-    var packageReceiving = {
-        price: $('#anPrice').val(),
-        weight: $('#pacWeight').val(),
-        description: $('#desc').val(),
-        packageType: $('#packType').find('option:selected').attr('id'),
-        employee: JSON.parse(localStorage.getItem('currentUser')).id,
-        postOfficeTo: $('#officeTo').val(),
-        size: $('#pacSize').val(),
-        payReceiver: $("#payRec").is(':checked', function () {
-            $("#checkbox1").attr('value', 'true');
+    var historyRecord = {
+        postOffice: $('#postOff').val(),
+        isEndOffice: $("#isEndOff").is(':checked', function () {
+            $("#isEndOff").attr('value', 'true');
         }),
-        receiver: $('#cusTo').val(),
-        sender: $('#cusFrom').val(),
-        deliveryPrice: $('#delivPrice').val(),
-        packaging: $('#packagingId').find('option:selected').attr('id'),
+        employee: JSON.parse(localStorage.getItem('currentUser')).id,
+        pac: $('#pac').val()
     };
 
-    console.log(packageReceiving);
+    console.log(historyRecord);
 
     $.ajax({
-        url: basicURL + "/api/package-receiving/create",
+        url: basicURL + "/api/history/create",
         type: "POST",
         dataType: "json",
         contentType: "application/json",
-        data: JSON.stringify(packageReceiving)
+        data: JSON.stringify(historyRecord)
     })
         .fail(function (e) {
             alert("ERROR:\n" + e.responseJSON.errors[0].defaultMessage);

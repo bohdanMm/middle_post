@@ -11,7 +11,7 @@ import org.mapstruct.Mapping;
 import java.util.Objects;
 
 @Mapper(componentModel = "spring", uses = {PackageTypeMapper.class, CustomerMapper.class})
-public interface PackageMapper {
+public interface PacMapper {
 
     @Mapping(target = "packageType", source = "packageType.name")
     PackageDto toDto(Package pac);

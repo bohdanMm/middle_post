@@ -16,8 +16,9 @@ public class UserService {
 
     public Employee getEmployeeById(Long id) {
         log.debug("Get employee by id: {}", id);
+        employeeRepository.findAll();
 
         return employeeRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Employee with id: " + id + "Not found"));
+                .orElseThrow(() -> new EntityNotFoundException("Employee with id: " + id + " not found"));
     }
 }
