@@ -11,4 +11,6 @@ public class CustomerRequest extends UserRequest {
 
     @NotNull
     private String passportData;
+
+    private String phoneNumber;
 }

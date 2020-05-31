@@ -46,7 +46,7 @@ public class AuthorizationService {
         log.debug("Request to create employee");
 
         Employee employee = employeeMapper.toEntity(employeeRequest);
-        employee.getUserRoles().add(userRoleService.findRoleByName("employee"));
+        employee.setUserRole(userRoleService.findRoleByName("employee"));
 
         return employeeMapper.toUserDto(employeeRepository.save(employee));
     }
@@ -55,7 +55,7 @@ public class AuthorizationService {
         log.debug("Request to create customer");
 
         Customer customer = customerMapper.toEntity(customerRequest);
-        customer.getUserRoles().add(userRoleService.findRoleByName("customer"));
+        customer.setUserRole(userRoleService.findRoleByName("customer"));
 
         return customerMapper.toUserDto(customerRepository.save(customer));
     }

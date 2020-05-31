@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="../styles/admin.css">
+    <link rel="stylesheet" type="text/css" href="../styles/header.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div id="header">
+        <img src="../images/sign.png" id="icon" alt="">
+        <div id="references">
+        </div>
+    </div>
+    <div id="main">
+        <div id="adminSelector" class="align">
+            <label for="itemToConfigure">Choose item:</label>
+            <select id="itemToConfigure">
+                <option value="district">
+                    District
+                </option>
+                <option value="region">
+                    Region
+                </option>
+                <option value="locality">
+                    Locality
+                </option>
+            </select>
+        </div>
+
+        <form>
+            <div class="district align add">
+                <div id="distrNameCont">
+                    <label for="distrName">District name</label>
+                    <input type="text" id="distrName">
+                </div>
+            </div>
+            <div class="district align add">
+                <button onclick="saveDistrict()">Add district</button>
+            </div>
+        </form>
+
+        <div class="district align getAll" id="getAllDistr">
+            <table id="distrTable">
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Delete</td>
+                </tr>
+            </table>
+        </div>
+
+
+        <form>
+            <div class="region align add">
+                <div>
+                    <label for="distrSelect">District</label>
+                    <select class="distrSelect" id="refionDistrSel">
+
+                    </select>
+                </div>
+            </div>
+            <div class="region align add">
+                <div>
+                    <label for="regionName">Region name</label>
+                    <input type="text" id="regionName">
+                </div>
+            </div>
+
+            <div class="region align add">
+                <button onclick="saveRegion()">Add region</button>
+            </div>
+        </form>
+
+        <div class="region align getAll" id="getAllRegions">
+            <table id="regionTable">
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>District</td>
+                    <td>Delete</td>
+                </tr>
+            </table>
+        </div>
+
+
+        <form>
+            <div class="locality align add">
+                <div>
+                    <label for="distrSelect">District</label>
+                    <select class="distrSelect" id="localityDistrSel">
+
+                    </select>
+                </div>
+            </div>
+            <div class="locality align add">
+                <div>
+                    <label for="regionName">Region</label>
+                    <select id="localityRegionSel"></select>
+                </div>
+            </div>
+            <div class="locality align add">
+                <div>
+                    <label for="localityName">Locality name</label>
+                    <input type="text" id="localityName">
+                </div>
+            </div>
+
+            <div class="locality align add">
+                <button onclick="saveLocality()">Add locality</button>
+            </div>
+        </form>
+
+        <div class="locality align getAll" id="getAllRegions">
+            <table id="loclaitiesTable">
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>District</td>
+                    <td>Region</td>
+                    <td>Delete</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+<script src="../scripts/showUserInHeader.js"></script>
+<script src="../scripts/admin.js"></script>
+</html>

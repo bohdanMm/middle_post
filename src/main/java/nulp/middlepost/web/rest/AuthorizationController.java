@@ -7,13 +7,11 @@ import nulp.middlepost.service.authorization.dto.CustomerRequest;
 import nulp.middlepost.service.authorization.dto.EmployeeRequest;
 import nulp.middlepost.service.authorization.dto.LoginRequest;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/auth")

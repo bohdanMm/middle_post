@@ -17,6 +17,8 @@ public class Customer extends User {
 
     private String passportData;
 
+    private String phoneNumber;
+
     @OneToMany(mappedBy = "sender")
     private List<PackageReceiving> sandedPackages = new ArrayList<>();
 

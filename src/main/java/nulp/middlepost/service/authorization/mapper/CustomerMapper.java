@@ -15,7 +15,7 @@ public interface CustomerMapper {
 
     Customer toEntity(CustomerRequest customerRequest);
 
-    @Mapping(target = "userRoles", expression = "java(customer.getUserRoles().stream().map(UserRole::getName).collect(Collectors.toList()))")
+    @Mapping(target = "userRole", source = "userRole.name")
     UserDto toUserDto(Customer customer);
 
     default Customer fromId(Long id){

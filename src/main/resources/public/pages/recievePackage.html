@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="../styles/receivePackage.css">
+    <link rel="stylesheet" type="text/css" href="../styles/header.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+<div id="header">
+    <img src="../images/sign.png" id="icon" alt="">
+    <div id="references">
+    </div>
+</div>
+<div id="receivePackage">
+    <form id="receivePackageForm">
+        <div id="announcedPrice" class="align">
+            <label for="anPrice">Announced price:</label>
+            <input type="text" name="announcedPrice" id="anPrice" required="required">
+        </div>
+        <div id="weight" class="align">
+            <label for="pacWeight">Weight:</label>
+            <input type="text" name="weight" id="pacWeight" required="required">
+        </div>
+        <div id="size" class="align">
+            <label for="pacSize">Size:</label>
+            <input type="text" name="size" id="pacSize" required="required">
+        </div>
+        <div id="customerFrom" class="align">
+            <label for="cusFrom">Customer from:</label>
+            <input type="number" name="customerFrom" id="cusFrom" required="required">
+        </div>
+        <div id="customerTo" class="align">
+            <label for="cusTo">Customer to:</label>
+            <input type="number" name="customerTo" id="cusTo" required="required">
+        </div>
+        <div id="description" class="align">
+            <label for="desc">Description:</label>
+            <input type="text" name="pass" id="desc" required="required">
+        </div>
+        <div id="packageType" class="align">
+            <label for="packType">Package type:</label>
+            <input type="text" name="packType" required="required">
+        </div>
+        <div id="postOfficeTo" class="align">
+            <label for="officeTo">Office from:</label>
+            <input type="number" name="packType" id="officeTo" required="required">
+        </div>
+        <div id="payReceiver" class="align">
+            <label for="officeTo">Pay receiver:</label>
+            <input type="checkbox" name="payRec" value="payReceiver">
+        </div>
+        <div id="deliveryPrice" class="align">
+            <label for="delivPrice">Delivery price:</label>
+            <input type="number" name="deliveryPrice" id="delivPrice" value="payReceiver">
+        </div>
+        <div id="packaging" class="align">
+            <label for="packagingId">Packaging:</label>
+            <input type="number" name="packaging" id="packagingId">
+        </div>
+        <button onclick="return receivePackage();">Send</button>
+    </form>
+</div>
+
+</body>
+<script src="../scripts/showUserInHeader.js"></script>
+<script src="../scripts/receivePackage.js"></script>
+
+</html>

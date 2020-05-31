@@ -7,9 +7,9 @@ import org.mapstruct.Mapper;
 import java.util.Objects;
 
 @Mapper(componentModel = "spring")
-public interface DictionariesMapper {
+public interface PackageTypeMapper {
 
-    default PackageType packageTypeFromId(Long id){
+    default PackageType fromId(Long id){
         if (Objects.isNull(id)){
             return null;
         }

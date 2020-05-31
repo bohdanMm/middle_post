@@ -4,19 +4,19 @@ import nulp.middlepost.domain.Employee;
 import nulp.middlepost.domain.UserRole;
 import nulp.middlepost.service.authorization.dto.EmployeeRequest;
 import nulp.middlepost.service.authorization.dto.UserDto;
-import nulp.middlepost.service.dictionaties.mapper.DictionariesMapper;
+import nulp.middlepost.service.dictionaties.mapper.PackageTypeMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "spring", uses = {DictionariesMapper.class}, imports = {UserRole.class, Collectors.class})
+@Mapper(componentModel = "spring", uses = {PackageTypeMapper.class}, imports = {UserRole.class, Collectors.class})
 public interface EmployeeMapper {
 
     Employee toEntity(EmployeeRequest employeeRequest);
 
-    @Mapping(target = "userRoles", expression = "java(employee.getUserRoles().stream().map(UserRole::getName).collect(Collectors.toList()))")
+    @Mapping(target = "userRole", source = "userRole.name")
     UserDto toUserDto(Employee employee);
 
     default Employee fromId(Long id) {

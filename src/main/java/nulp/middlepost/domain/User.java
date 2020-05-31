@@ -24,6 +24,6 @@ public class User {
 
     private String password;
 
-    @ManyToMany
-    private List<UserRole> userRoles = new ArrayList<>();
+    @ManyToOne
+    private UserRole userRole;
 }
