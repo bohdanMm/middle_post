@@ -2,10 +2,9 @@ package nulp.middlepost.web.rest;
 
 import lombok.RequiredArgsConstructor;
 import nulp.middlepost.service.pack.PackageService;
-import nulp.middlepost.service.pack.dto.PackageDto;
-import nulp.middlepost.service.pack.dto.PackageRequest;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
@@ -15,8 +14,5 @@ public class PackageController {
 
     private final PackageService packageService;
 
-    @PostMapping("/create")
-    public ResponseEntity<PackageDto> create(@RequestBody PackageRequest packageRequest) {
-        return ResponseEntity.ok().body(packageService.create(packageRequest));
-    }
+
 }

@@ -36,7 +36,7 @@ public abstract class PackageReceivingMapper {
     public abstract PackageReceiving toEntity(PackageReceivingRequest packageReceivingRequest);
 
     @AfterMapping
-    private void mapPackage(@MappingTarget PackageReceiving packageReceiving, PackageReceivingRequest request) {
+    protected void mapPackage(@MappingTarget PackageReceiving packageReceiving, PackageReceivingRequest request) {
         packageReceiving.setPack(packageMapper.fromId(request.getPack()));
     }
 }

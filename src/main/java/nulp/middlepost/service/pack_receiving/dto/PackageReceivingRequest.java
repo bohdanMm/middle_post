@@ -2,7 +2,6 @@ package nulp.middlepost.service.pack_receiving.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import nulp.middlepost.service.post_office.dto.PostOfficeDto;
 
 import java.time.Instant;
 
@@ -20,9 +19,9 @@ public class PackageReceivingRequest {
 
     private Long employee;
 
-    private PostOfficeDto postOfficeFrom;
+    private Long postOfficeFrom;
 
-    private PostOfficeDto postOfficeTo;
+    private Long postOfficeTo;
 
     private Boolean payReceiver;
 
@@ -31,4 +30,14 @@ public class PackageReceivingRequest {
     private Long packaging;
 
     private Long pack;
+
+    private Double price;
+
+    private Double weight;
+
+    private String size;
+
+    private String description;
+
+    private Long packageType;
 }

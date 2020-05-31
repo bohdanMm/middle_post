@@ -4,7 +4,7 @@ import nulp.middlepost.domain.Package;
 import nulp.middlepost.service.authorization.mapper.CustomerMapper;
 import nulp.middlepost.service.dictionaties.mapper.PackageTypeMapper;
 import nulp.middlepost.service.pack.dto.PackageDto;
-import nulp.middlepost.service.pack.dto.PackageRequest;
+import nulp.middlepost.service.pack_receiving.dto.PackageReceivingRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -16,7 +16,8 @@ public interface PackageMapper {
     @Mapping(target = "packageType", source = "packageType.name")
     PackageDto toDto(Package pac);
 
-    Package toEntity(PackageRequest packageRequest);
+    @Mapping(target = "owner", source = "sender")
+    Package toEntity(PackageReceivingRequest packageRequest);
 
     default Package fromId(Long id) {
         if (Objects.isNull(id)) {

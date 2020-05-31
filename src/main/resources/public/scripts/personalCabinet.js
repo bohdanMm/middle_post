@@ -14,8 +14,8 @@ function getPackagesData() {
     var table = document.getElementById("usersHistoryTable");
     $.ajax({
         url: basicURL + "/package/byUser?page=0&size=100&sortBy=" + document.getElementById("selecStortBy").value
-        + "&direction="+ document.getElementById('order').value
-        +"&id=" + JSON.parse(sessionStorage.getItem('currentUser')).id,
+            + "&direction=" + document.getElementById('order').value
+            + "&id=" + JSON.parse(localStorage.getItem('currentUser')).id,
         type: "GET",
         dataType: "json"
     })
@@ -29,7 +29,8 @@ function getPackagesData() {
                 var package = packages[i];
                 for (var j = 0; j < table.rows[0].cells.length; j++) {
                     row.insertCell();
-                };
+                }
+                ;
                 table.rows[table.rows.length - 1].cells[0].innerHTML = package.id;
                 table.rows[table.rows.length - 1].cells[1].innerHTML = package.weight;
                 table.rows[table.rows.length - 1].cells[2].innerHTML = package.statusName;

@@ -1,5 +1,8 @@
 var isLogIn;
 
+document.getElementById('icon').addEventListener('click', function () {
+    window.location.href = '../index.html';
+});
 
 function showUserInHeader() {
     console.log("show user in header");
@@ -8,9 +11,9 @@ function showUserInHeader() {
     } else {
         var pageHref = document.createElement("a");
         var href;
-        if(JSON.parse(localStorage.getItem('currentUser')).userRole == "admin"){
+        if (JSON.parse(localStorage.getItem('currentUser')).userRole == "admin") {
             href = "pages/adminPage.html";
-        } else if(JSON.parse(localStorage.getItem('currentUser')).userRole == "employee") {
+        } else if (JSON.parse(localStorage.getItem('currentUser')).userRole == "employee") {
             href = "pages/workerPage.html";
         } else {
             href = "pages/personalCabinet.html";
@@ -18,18 +21,18 @@ function showUserInHeader() {
         pageHref.href = href;
         pageHref.className = "refs";
         pageHref.innerHTML = JSON.parse(localStorage.getItem('currentUser')).fullName;
-        var refrences =  document.getElementById('references');
+        var refrences = document.getElementById('references');
         refrences.appendChild(pageHref);
         var exit = document.createElement("a");
         exit.className = "refs";
-        exit.href="#";
+        exit.href = "#";
         exit.addEventListener("click", logOut);
         exit.innerHTML = "Log out";
         refrences.appendChild(exit);
     }
 }
 
-function logOut(){
+function logOut() {
     sessionStorage.clear();
     window.location.href = '../index.html';
 }
