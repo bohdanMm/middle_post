@@ -18,6 +18,8 @@ public class PackageDto {
 
     private UserDto owner;
 
+    private UserDto receiver;
+
     private String description;
 
     private String packageType;

@@ -14,6 +14,7 @@ import java.util.Objects;
 public interface PacMapper {
 
     @Mapping(target = "packageType", source = "packageType.name")
+    @Mapping(target = "receiver", source = "packageReceiving.receiver")
     PackageDto toDto(Package pac);
 
     @Mapping(target = "owner", source = "sender")
