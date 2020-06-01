@@ -7,6 +7,8 @@ import nulp.middlepost.service.history.dto.HistoryRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @RestController
@@ -18,5 +20,10 @@ public class HistoryController {
     @PostMapping("/create")
     public ResponseEntity<HistoryDto> create(@RequestBody HistoryRequest historyRequest) {
         return ResponseEntity.ok().body(historyService.create(historyRequest));
+    }
+
+    @GetMapping("/{packageId}")
+    public ResponseEntity<List<HistoryDto>> getPackageHistory(@PathVariable Long packageId){
+        return ResponseEntity.ok().body(historyService.getForPac(packageId));
     }
 }

@@ -22,11 +22,11 @@
         <div id="adminSelector" class="align">
             <label for="itemToConfigure">Choose item:</label>
             <select id="itemToConfigure">
-                <option value="district">
-                    District
-                </option>
                 <option value="region">
                     Region
+                </option>
+                <option value="district">
+                    District
                 </option>
                 <option value="locality">
                     Locality
@@ -35,19 +35,19 @@
         </div>
 
         <form>
-            <div class="district align add">
-                <div id="distrNameCont">
-                    <label for="distrName">District name</label>
-                    <input type="text" id="distrName">
+            <div class="region align add">
+                <div id="regionNameCont">
+                    <label for="regionName">Region name</label>
+                    <input type="text" id="regionName">
                 </div>
             </div>
-            <div class="district align add">
-                <button onclick="saveDistrict()">Add district</button>
+            <div class="region align add">
+                <button onclick="saveRegion()">Add region</button>
             </div>
         </form>
 
-        <div class="district align getAll" id="getAllDistr">
-            <table id="distrTable">
+        <div class="region align getAll" id="getAllRegion">
+            <table id="regionTable">
                 <tr>
                     <td>Id</td>
                     <td>Name</td>
@@ -58,28 +58,28 @@
 
 
         <form>
-            <div class="region align add">
+            <div class="district align add">
                 <div>
-                    <label for="distrSelect">District</label>
-                    <select class="distrSelect" id="refionDistrSel">
+                    <label for="regionDistrSel">Region</label>
+                    <select class="distrSelect" id="regionDistrSel">
 
                     </select>
                 </div>
             </div>
-            <div class="region align add">
+            <div class="district align add">
                 <div>
-                    <label for="regionName">Region name</label>
-                    <input type="text" id="regionName">
+                    <label for="districtName">District name</label>
+                    <input type="text" id="districtName">
                 </div>
             </div>
 
-            <div class="region align add">
-                <button onclick="saveRegion()">Add region</button>
+            <div class="district align add">
+                <button onclick="saveDistrict()">Add district</button>
             </div>
         </form>
 
-        <div class="region align getAll" id="getAllRegions">
-            <table id="regionTable">
+        <div class="district align getAll" id="getAllDistricts">
+            <table id="districtTable">
                 <tr>
                     <td>Id</td>
                     <td>Name</td>
@@ -93,16 +93,16 @@
         <form>
             <div class="locality align add">
                 <div>
-                    <label for="distrSelect">District</label>
-                    <select class="distrSelect" id="localityDistrSel">
+                    <label for="regionSelect">Region</label>
+                    <select class="regionSelect" id="regionSelect">
 
                     </select>
                 </div>
             </div>
             <div class="locality align add">
                 <div>
-                    <label for="regionName">Region</label>
-                    <select id="localityRegionSel"></select>
+                    <label for="districtName">District</label>
+                    <select id="localityDistrSel"></select>
                 </div>
             </div>
             <div class="locality align add">

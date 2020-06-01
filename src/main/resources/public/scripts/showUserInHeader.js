@@ -1,5 +1,7 @@
 var isLogIn;
 
+document.addEventListener('DOMContentLoaded', showUserInHeader);
+
 document.getElementById('icon').addEventListener('click', function () {
     window.location.href = '../index.html';
 });
@@ -48,6 +50,6 @@ function showUserInHeader() {
 }
 
 function logOut() {
-    sessionStorage.clear();
+    localStorage.clear();
     window.location.href = '../index.html';
 }

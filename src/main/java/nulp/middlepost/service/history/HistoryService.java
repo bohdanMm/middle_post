@@ -11,6 +11,9 @@ import nulp.middlepost.service.history.mapper.HistoryMapper;
 import nulp.middlepost.service.user.UserService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 @Slf4j
 @RequiredArgsConstructor
@@ -30,5 +33,14 @@ public class HistoryService {
         History save = historyRepository.save(history);
 
         return historyMapper.toDto(save);
+    }
+
+    public List<HistoryDto> getForPac(Long pacId){
+        log.debug("Get package history: {}", pacId);
+
+        return historyRepository.findByPacId(pacId)
+                .stream()
+                .map(historyMapper::toDto)
+                .collect(Collectors.toList());
     }
 }

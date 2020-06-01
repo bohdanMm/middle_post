@@ -3,7 +3,7 @@ package nulp.middlepost.service.pack_receiving.mapper;
 import nulp.middlepost.domain.PackageReceiving;
 import nulp.middlepost.service.authorization.mapper.CustomerMapper;
 import nulp.middlepost.service.authorization.mapper.EmployeeMapper;
-import nulp.middlepost.service.dictionaries.mapper.PackagingMapper;
+import nulp.middlepost.service.dictionaties.mapper.PackagingMapper;
 import nulp.middlepost.service.pack.mapper.PacMapper;
 import nulp.middlepost.service.pack_receiving.dto.PackageReceivingDto;
 import nulp.middlepost.service.pack_receiving.dto.PackageReceivingRequest;

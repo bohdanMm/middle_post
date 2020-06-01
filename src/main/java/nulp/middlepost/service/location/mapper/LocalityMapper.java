@@ -11,8 +11,6 @@ import java.util.Objects;
 @Mapper(componentModel = "spring", uses = {DistrictMapper.class})
 public interface LocalityMapper {
 
-    @Mapping(target = "regionName", source = "district.region.name")
-    @Mapping(target = "districtName", source = "district.name")
     LocalityDto toDto(Locality locality);
 
     Locality toEntity(LocalityRequest localityRequest);

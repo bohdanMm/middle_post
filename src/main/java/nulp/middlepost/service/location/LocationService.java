@@ -8,13 +8,14 @@ import nulp.middlepost.domain.Region;
 import nulp.middlepost.repository.DistrictRepository;
 import nulp.middlepost.repository.LocalityRepository;
 import nulp.middlepost.repository.RegionRepository;
-import nulp.middlepost.service.location.dto.DistrictRequest;
-import nulp.middlepost.service.location.dto.LocalityRequest;
-import nulp.middlepost.service.location.dto.RegionRequest;
+import nulp.middlepost.service.location.dto.*;
 import nulp.middlepost.service.location.mapper.DistrictMapper;
 import nulp.middlepost.service.location.mapper.LocalityMapper;
 import nulp.middlepost.service.location.mapper.RegionMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -28,24 +29,52 @@ public class LocationService {
     private final LocalityMapper localityMapper;
     private final RegionMapper regionMapper;
 
-    public String createDistrict(DistrictRequest districtRequest){
+    public String createDistrict(DistrictRequest districtRequest) {
         log.debug("Create district");
 
         District district = districtMapper.toEntity(districtRequest);
         return districtRepository.save(district).getName();
     }
 
-    public String createRegion(RegionRequest regionRequest){
+
+    public String createRegion(RegionRequest regionRequest) {
         log.debug("Create region");
 
         Region region = regionMapper.toEntity(regionRequest);
         return regionRepository.save(region).getName();
     }
 
-    public String createLocality(LocalityRequest localityRequest){
+    public String createLocality(LocalityRequest localityRequest) {
         log.debug("Create locality");
 
         Locality locality = localityMapper.toEntity(localityRequest);
         return localityRepository.save(locality).getName();
+    }
+
+    public List<RegionDto> getRegions() {
+        log.debug("Get regions");
+
+        return regionRepository.findAll()
+                .stream()
+                .map(regionMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    public List<DistrictDto> getDistrictsByRegion(Long regionId){
+        log.debug("Get deistricts by region id: {}", regionId);
+
+        return districtRepository.findByRegionId(regionId)
+                .stream()
+                .map(districtMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    public List<LocalityDto> getLocalitiesByDistrictId(Long districtId){
+        log.debug("Get localities by district id: {}", districtId);
+
+        return localityRepository.findByDistrictId(districtId)
+                .stream()
+                .map(localityMapper::toDto)
+                .collect(Collectors.toList());
     }
 }

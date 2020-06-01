@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import nulp.middlepost.service.location.dto.LocalityDto;
 
+import java.time.Instant;
+
 @Getter
 @Setter
 public class PostOfficeDto {
@@ -17,4 +19,8 @@ public class PostOfficeDto {
     private Integer buildingNumber;
 
     private LocalityDto locality;
+
+    private Instant receivingDate;
+
+    private Boolean isEndOffice;
 }

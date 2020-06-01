@@ -1,16 +1,15 @@
 var basicURL = "http://localhost:8080";
 
-document.addEventListener('DOMContentLoaded', showUserInHeader);
 document.addEventListener('DOMContentLoaded', getPackagesData);
 document.addEventListener('DOMContentLoaded', getPackageTypes);
-document.addEventListener('change', getPackagesData)
+document.addEventListener('change', getPackagesData);
 
 
 function getPackagesData() {
     var table = document.getElementById("usersHistoryTable");
     var filters = "";
     var packageTypeFilter = $('#packType').val()
-    if (packageTypeFilter != null){
+    if (packageTypeFilter != ""){
         filters += "&packageType=" + packageTypeFilter;
     }
     console.log(JSON.parse(localStorage.getItem('currentUser')).id)
@@ -33,7 +32,7 @@ function getPackagesData() {
                     row.insertCell();
                 }
                 console.log(package)
-                table.rows[table.rows.length - 1].cells[0].innerHTML = package.id;
+                table.rows[table.rows.length - 1].cells[0].appendChild(createLink(package.id));
                 table.rows[table.rows.length - 1].cells[1].innerHTML = package.weight;
                 table.rows[table.rows.length - 1].cells[2].innerHTML = package.price;
                 table.rows[table.rows.length - 1].cells[3].innerHTML = package.size;
@@ -50,4 +49,13 @@ function getPackagesData() {
             custToIdArr = [];
             alert("ERROR:\n" + e.responseJSON.message);
         })
+}
+
+function createLink(packageId) {
+    var link = document.createElement("a");
+    link.setAttribute("href", "packageHistory.html?packageId=" + packageId)
+    var linkText = document.createTextNode(packageId);
+    link.appendChild(linkText);
+
+    return link;
 }

@@ -1,4 +1,4 @@
-package nulp.middlepost.service.dictionaries.mapper;
+package nulp.middlepost.service.dictionaties.mapper;
 
 import nulp.middlepost.domain.Packaging;
 import org.mapstruct.Mapper;
