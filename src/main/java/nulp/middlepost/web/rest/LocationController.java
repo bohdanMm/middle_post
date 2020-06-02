@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/location")
@@ -44,5 +43,23 @@ public class LocationController {
     @GetMapping("/locality/{districtId}")
     public ResponseEntity<List<LocalityDto>> getLocalities(@PathVariable Long districtId){
         return ResponseEntity.ok().body(locationService.getLocalitiesByDistrictId(districtId));
+    }
+
+    @DeleteMapping("/region/delete/{regionId}")
+    public ResponseEntity<Void> deleteRegion(@PathVariable Long regionId){
+        locationService.deleteRegion(regionId);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/district/delete/{districtId}")
+    public ResponseEntity<Void> deleteDistrict(@PathVariable Long districtId){
+        locationService.deleteDistrict(districtId);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/locality/delete/{localityId}")
+    public ResponseEntity<Void> deleteLocality(@PathVariable Long localityId){
+        locationService.deleteLocality(localityId);
+        return ResponseEntity.ok().build();
     }
 }

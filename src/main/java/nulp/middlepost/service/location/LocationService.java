@@ -77,4 +77,19 @@ public class LocationService {
                 .map(localityMapper::toDto)
                 .collect(Collectors.toList());
     }
+
+    public void deleteRegion(Long id){
+        log.debug("Delete region with id: {}", id);
+        regionRepository.deleteById(id);
+    }
+
+    public void deleteDistrict(Long id){
+        log.debug("Delete district with id: {}", id);
+        districtRepository.deleteById(id);
+    }
+
+    public void deleteLocality(Long id){
+        log.debug("Delete locality with id: {}", id);
+        localityRepository.deleteById(id);
+    }
 }

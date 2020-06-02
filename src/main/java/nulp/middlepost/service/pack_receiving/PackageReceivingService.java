@@ -34,6 +34,8 @@ public class PackageReceivingService {
         PackageReceiving packageReceiving = packageReceivingMapper.toEntity(packageReceivingRequest);
         Employee employee = userService.getEmployeeById(packageReceivingRequest.getEmployee());
         packageReceiving.setPostOfficeFrom(employee.getPostOffice());
+        packageReceiving.setReceiver(userService.getCustomerByEmail(packageReceivingRequest.getReceiverEmail()));
+        packageReceiving.setSender(userService.getCustomerByEmail(packageReceivingRequest.getSenderEmail()));
         PackageReceiving saved = packageReceivingRepository.save(packageReceiving);
 
         return packageReceivingMapper.toDto(saved);

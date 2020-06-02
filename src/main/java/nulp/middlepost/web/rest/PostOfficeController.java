@@ -5,10 +5,9 @@ import nulp.middlepost.service.post_office.PostOfficeService;
 import nulp.middlepost.service.post_office.dto.PostOfficeDto;
 import nulp.middlepost.service.post_office.dto.PostOfficeRequest;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -20,5 +19,10 @@ public class PostOfficeController {
     @PostMapping("/create")
     public ResponseEntity<PostOfficeDto> create(@RequestBody PostOfficeRequest postOfficeRequest) {
         return ResponseEntity.ok().body(postOfficeService.create(postOfficeRequest));
+    }
+
+    @GetMapping("/{localityId}")
+    public ResponseEntity<List<PostOfficeDto>> getByLocalityId(@PathVariable Long localityId){
+        return ResponseEntity.ok().body(postOfficeService.getByLocality(localityId));
     }
 }

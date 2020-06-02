@@ -9,6 +9,7 @@ import nulp.middlepost.service.pack.mapper.PacMapper;
 import nulp.middlepost.service.pack.specification.PackageCriteria;
 import nulp.middlepost.service.pack.specification.PackageSpecificationService;
 import nulp.middlepost.service.pack_receiving.dto.PackageReceivingRequest;
+import nulp.middlepost.service.user.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,11 +23,13 @@ public class PackageService {
     private final PackageRepository packageRepository;
     private final PacMapper packageMapper;
     private final PackageSpecificationService specificationService;
+    private final UserService userService;
 
     public PackageDto create(PackageReceivingRequest packageRequest) {
         log.debug("Create new package");
 
         Package pack = packageMapper.toEntity(packageRequest);
+        pack.setOwner(userService.getCustomerByEmail(packageRequest.getSenderEmail()));
         return packageMapper.toDto(packageRepository.save(pack));
     }
 

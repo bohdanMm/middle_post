@@ -102,7 +102,7 @@ function getRegionTable(page) {
                 };
                 table.rows[table.rows.length - 1].cells[0].innerHTML = region.id;
                 table.rows[table.rows.length - 1].cells[1].innerHTML = region.name;
-                // table.rows[table.rows.length - 1].cells[2].innerHTML = '<button onclick="deleteRegion(' + region.id + ')">X</button>';
+                table.rows[table.rows.length - 1].cells[2].innerHTML = '<button onclick="deleteRegion(' + region.id + ')">X</button>';
 
             }
         })
@@ -110,24 +110,24 @@ function getRegionTable(page) {
             alert("Error in load districts. " + e.responseJSON.message)
         })
 }
-//
-// function deleteRegion(id) {
-//     $.ajax({
-//         url: basicURL + "/district?id=" + id,
-//         type: "DELETE",
-//         dataType: "json"
-//     })
-//         .done(function (data) {
-//             var table = document.getElementById("distrTable");
-//             for (var i = table.rows.length - 1; i > 0; i--) {
-//                 table.deleteRow(i);
-//             }
-//             getRegionTable(distrPage);
-//         })
-//         .fail(function (e) {
-//             alert("ERROR:\n" + e.responseJSON.message);
-//         })
-// }
+
+function deleteRegion(id) {
+    $.ajax({
+        url: basicURL + "/location/region/delete/" + id,
+        type: "DELETE",
+        dataType: "json"
+    })
+        .done(function (data) {
+            var table = document.getElementById("regionTable");
+            for (var i = table.rows.length - 1; i > 0; i--) {
+                table.deleteRow(i);
+            }
+            getRegionTable();
+        })
+        .fail(function (e) {
+            alert("ERROR:\n" + e.responseJSON.message);
+        })
+}
 //
 //
 // function saveDistrict() {

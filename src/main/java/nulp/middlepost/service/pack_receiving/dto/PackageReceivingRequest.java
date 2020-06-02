@@ -11,9 +11,9 @@ public class PackageReceivingRequest {
 
     private Long id;
 
-    private Long sender;
+    private String senderEmail;
 
-    private Long receiver;
+    private String receiverEmail;
 
     private Instant receivingDate = Instant.now();
 

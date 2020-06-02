@@ -17,7 +17,6 @@ public interface PacMapper {
     @Mapping(target = "receiver", source = "packageReceiving.receiver")
     PackageDto toDto(Package pac);
 
-    @Mapping(target = "owner", source = "sender")
     Package toEntity(PackageReceivingRequest packageRequest);
 
     default Package fromId(Long id) {

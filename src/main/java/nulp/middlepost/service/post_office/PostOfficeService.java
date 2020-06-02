@@ -9,6 +9,9 @@ import nulp.middlepost.service.post_office.dto.PostOfficeRequest;
 import nulp.middlepost.service.post_office.mapper.PostOfficeMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Slf4j
 @RequiredArgsConstructor
 @Service
@@ -23,5 +26,15 @@ public class PostOfficeService {
         PostOffice savedPostOffice = postOfficeRepository.save(postOfficeMapper.toEntity(postOfficeRequest));
 
         return postOfficeMapper.toDto(savedPostOffice);
+    }
+
+    public List<PostOfficeDto> getByLocality(Long localityId){
+        log.debug("Get post offices by locality: {}", localityId);
+
+        postOfficeRepository.findAll();
+        return postOfficeRepository.findByLocalityId(localityId)
+                .stream()
+                .map(postOfficeMapper::toDto)
+                .collect(Collectors.toList());
     }
 }

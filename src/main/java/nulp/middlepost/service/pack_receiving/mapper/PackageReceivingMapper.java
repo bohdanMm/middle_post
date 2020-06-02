@@ -29,8 +29,6 @@ public abstract class PackageReceivingMapper {
     @Mapping(target = "packaging", source = "packaging.name")
     public abstract PackageReceivingDto toDto(PackageReceiving packageReceiving);
 
-    @Mapping(target = "sender", expression = "java(customerMapper.fromId(packageReceivingRequest.getSender()))")
-    @Mapping(target = "receiver", expression = "java(customerMapper.fromId(packageReceivingRequest.getReceiver()))")
     @Mapping(target = "employee", expression = "java(employeeMapper.fromId(packageReceivingRequest.getEmployee()))")
     @Mapping(target = "pack", ignore = true)
     public abstract PackageReceiving toEntity(PackageReceivingRequest packageReceivingRequest);
